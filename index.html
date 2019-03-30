@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Sign-Up Today!</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+ 
+
+		<nav class="navbar bg-dark">
+				
+
+				<h1 class="text-center text-warning">ZotExpress!
+						Time Table</h1>
+			</nav>
+
+			<br><br>
+
+  <div class="container content">
+
+			<!-- <div class="jumbotron jumbotron-fluid main_header">
+					
+							<h1 class="text-center" text-warning">ZotExpress!
+									Time Table</h1>
+					
+				</div> -->
+
+					<th scope="col">Destination</th>
+
+<br>
+	  
+	  <table class="table table-striped">
+			<thead class="thead-dark">
+			  <tr>
+					<th scope="col">Train Name</th>
+					<th scope="col">Destination</th>
+					<th scope="col">Frequency(min)</th>
+					<th scope="col">Next Arrival</th>
+					<th scope="col">Minutes Away</th>
+			  </tr>
+			</thead>
+			<tbody id="timetable">
+			  <!-- <tr> -->
+				<!-- <th scope="row">1</th> -->
+				<!-- <td>Mark</td> -->
+				<!-- <td>Otto</td> -->
+				<!-- <td>@mdo</td> -->
+				<!-- <td>@mdo</td> -->
+			  <!-- </tr> -->
+
+			  <!-- <tr> -->
+					<!-- <th scope="row">1</th> -->
+					<!-- <td>Mark</td> -->
+					<!-- <td>Otto</td> -->
+					<!-- <td>@mdo</td> -->
+					<!-- <td>@mdo</td> -->
+				  <!-- </tr> -->
+			 
+			</tbody>
+		  </table>
+
+		  <form class="form-horizontal">
+					<div class="table-responsive">
+							<table class="table table-bordered">
+									<thead class="thead-dark">
+											<tr>
+													<th scope="col">Add Train</th>
+											</tr>
+									</thead>
+
+									<tbody>
+											<!-- name input -->
+											<tr>
+													<td>
+															<label for="name-input">Train Name</label>
+															<input type="text" id="name-input" class="form-control" />
+													</td>
+											</tr>
+											<!-- destination input -->
+											<tr>
+													<td>
+															<label>Destination</label>
+															<input type="text" class="form-control" id="destination-input" />
+													</td>
+											</tr>
+											<!-- time input -->
+											<tr>
+													<td>
+															<label>First Train Time(HH:mm-military time)</label>
+															<input type="time" class="form-control" id="time-input" />
+													</td>
+											</tr>
+											<!--  -->
+											<tr>
+													<td>
+															<label>Frequency(min)</label>
+															<input type="number" class="form-control" id="frequency-input" />
+													</td>
+											</tr>
+									</tbody>
+
+							</table>
+					</div>
+					<button class="btn btn-light" id="sbmt" type="submit">Submit</button>
+			</form>
+
+
+
+	  <!-- Container-->
+  </div>
+
+
+
+
+	
+	 	 <!-- firebase firestore cdns -->
+	 <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+	 <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
+
+	 <script src="assets/js/app.js"></script>
+ 
+
+</body>
+
+</html>

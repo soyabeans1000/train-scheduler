@@ -1,0 +1,67 @@
+/* font for header of page
+
+@import url('https://fonts.googleapis.com/css?family=Rock+Salt');
+
+.rating_text{
+	
+	color:white;
+	float:left;
+	margin:20px;
+}
+/* mall background */
+body{
+	
+	background-color: black;
+	  background-image: url('../images/train.jpeg');  
+
+
+}
+
+
+.content
+{
+	background-color: white
+}
+
+
+.main_header
+{
+	background-image: url('../images/train.jpeg');
+}
+/* .shopping_btn{
+	padding:3px;
+	color:white;
+	background-color:black;
+	margin:5px;
+	font-size:2rem;
+}
+h1{
+	font-family: 'Rock Salt', cursive;
+	font-size:2.5rem;
+
+}
+.container{
+	width:100vh;
+	background-color: black;
+	width:70vw;
+	border: grey solid 1px;
+} */
+
+
+/* 
+/* Width at 640px and below  */
+/* @media only screen and (max-width: 640px) {
+
+
+	.shopping_btn{
+		font-size:1rem;
+	}
+
+	.rating_text{
+		font-size: 0.8rem;
+	}
+
+	.container{
+		width:90vw;
+	}
+} */
