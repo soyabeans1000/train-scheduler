@@ -30,7 +30,7 @@
      name: document.querySelector('#name-input').value,
      destination : document.querySelector('#destination-input').value,
      first_train: document.querySelector('#time-input').value,
-      frquency: document.querySelector('#frequency-input').value
+      frequency: document.querySelector('#frequency-input').value
     })
   })
 
@@ -44,15 +44,20 @@
       // grab the important properties of the document
       let { name, destination, first_train, frequency } = doc.data()
 
+      let nexttrain =  next_train(first_train,frequency)
+
+      let minutesleft = minsleft(first_train,frequency)
+
+
     // Change the HTML to reflect
       let trainElem = document.createElement('tr')
           
       // userElem.id = 'recent-member'
       trainElem.innerHTML = `<th scope="row">1</th> 
-      <td>${name}</td>
-      <td>${destination}</td> 
-      <td>@mdo</td> 
-      <td>@mdo</td>`
+      <td>${name} & ${frequency}</td>
+      <td>${first_train}</td> 
+      <td>${nexttrain}</td> 
+      <td>${minutesleft}</td>`
 
 
 
