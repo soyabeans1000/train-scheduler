@@ -1,93 +1,47 @@
-function  next_train(first_train,frequency)
-{
+function next_train(first_train, frequency) {
+	let start_time = moment(first_train, 'HH:mm A');
+	let now = moment()
+	let duration = moment.duration(now.diff(start_time));
+	let totalMinutesSinceFirstTrain = Math.abs(parseInt(duration.asMinutes()));
+	let minute
+	if (now.isBefore(start_time)) totalMinutesSinceFirstTrain = 0
+	//Find minutes past since last train
+	minute = totalMinutesSinceFirstTrain % frequency
+	//Find how many minutes to go
+	let howMuchtoAdd = frequency - minute
+    howMuchtoAdd = howMuchtoAdd + totalMinutesSinceFirstTrain
     
-    let start_time = moment(first_train, 'HH:mm A');
-   
+    if (now.isBefore(start_time)) 
+    howMuchtoAdd = 0
+	return start_time.add(howMuchtoAdd, 'minutes').format('HH:mm A')
+}
+
+function minsleft(first_train, frequency) {
+	let start_time = moment(first_train, 'HH:mm A');
     let now = moment()
-
-    //console.log("Now=>" + now)
- 
-    //console.log("Start-Time=>" + start_time)
-
-
-    console.log("Time Now =>" + moment(now).format('HH:mm A') )
-
     
+    console.log("Time Now =>" + moment(now).format('HH:mm A') )  
     console.log("First Train =>" + moment(start_time).format('HH:mm A') )
 
+    let duration = moment.duration(now.diff(start_time));
     
-  
+    let minute = Math.abs(parseInt(duration.asMinutes()));
 
-var duration = moment.duration(now.diff(start_time));
-var hours = parseInt(duration.asHours());
-var minute = parseInt(duration.asMinutes()) % 60;
+    console.log(minute + 'Math.abs(parseInt(duration.asMinutes()))')
+    //Find minutes past since last train
+    minute = Math.abs(parseInt(duration.asMinutes())) % frequency
 
+    
 
-console.log(minute + "total Time Diff" )
+    console.log(minute + 'Math.abs(parseInt(duration.asMinutes()))%frequency')
 
-console.log(minute % frequency + "time since last train that left" )
+    minute = frequency - minute
 
-var millis = parseInt(duration.asMilliseconds())
-
-var freqInMillis = frequency * 60000
-
-
-
-
-var howmuchToAdd = freqInMillis - (millis % freqInMillis)
-
-console.log('adding Millis=> ' + howmuchToAdd)
-
-console.log('adding Minutes=> ' + howmuchToAdd/60000)
-     
-return now.add(howmuchToAdd,'ms').format('HH:mm A') 
-
-
-
-     
+    console.log("MINUSING FROM MINUTE=>" + minute)
+    
+    //If train not started 
+    if (now.isBefore(start_time)) 
+    minute = Math.abs(parseInt(duration.asMinutes()))
+	
+	return minute
 }
-
-function minsleft(first_train,frequency)
-{
-    
-    let start_time = moment(first_train, 'HH:mm A');
-   
-    let now = moment()
-
-    console.log("Now=>" + now)
- 
-    console.log("Start-Time=>" + start_time)
-
-  
-
-    timeDiff = now.diff(start_time)
-
-    
-var freqInMillis = frequency * 60000
-
-var howmuchToAdd = Math.floor(timeDiff % freqInMillis)
-
-   howmuchToAdd = freqInMillis - howmuchToAdd
-
-
-    console.log("Next Train in =>" + howmuchToAdd)
-
-   
-
-
-
-
-var duration = moment.duration(now.diff(start_time));
-var hours = parseInt(duration.asHours());
-var minute = parseInt(duration.asMinutes())-hours*60;
-
-
-console.log(howmuchToAdd)
-
-     
-return (howmuchToAdd/60000) ;
-
-  
-   
-}
-
