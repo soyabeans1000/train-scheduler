@@ -20,7 +20,7 @@ function minsleft(first_train, frequency) {
 	let start_time = moment(first_train, 'HH:mm A');
     let now = moment()
     
-    console.log("Time Now =>" + moment(now).format('HH:mm A') )  
+    console.log("Time Now =>" + moment(now).format('HH:mm') )  
     console.log("First Train =>" + moment(start_time).format('HH:mm A') )
 
     let duration = moment.duration(now.diff(start_time));

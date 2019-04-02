@@ -1,6 +1,5 @@
+document.querySelector('#localtime').innerHTML = moment().format('hh:mm A')
 
-  let trainCount
-  
   // Initialize Firebase
   const config = {
     apiKey: "AIzaSyCss5qU7BL6Nf5Vbjf78-NM80iNvNbK2_k",
@@ -25,21 +24,14 @@
     // Don't refresh the page!
     e.preventDefault()
 
-    // YOUR TASK!!!
-    // Code in the logic for storing and retrieving the most recent user.
-    // Don't forget to provide initial data to your Firebase db.
-  
-    db.collection('trains').doc().set({
-      trainNum: trainCount++,
+     db.collection('trains').doc().set({
      name: document.querySelector('#name-input').value,
      destination : document.querySelector('#destination-input').value,
      first_train: document.querySelector('#time-input').value,
-      frequency: document.querySelector('#frequency-input').value
+    frequency: document.querySelector('#frequency-input').value
     })
   
-  })
-
-  //  
+  }) 
 
   //FireBase watcher
   db.collection('trains').onSnapshot(snap => {
@@ -50,20 +42,18 @@
 
 
       // grab the important properties of the document
-      let { trainNum, name, destination, first_train, frequency } = doc.data()
-
+      let { name, destination, first_train, frequency } = doc.data()
       let nexttrain =  next_train(first_train,frequency)
-
       let minutesleft = minsleft(first_train,frequency)
 
 
     // Change the HTML to reflect
       let trainElem = document.createElement('tr')
           
-      // userElem.id = 'recent-member'
-      trainElem.innerHTML = `<th scope="row">${trainNum}</th> 
-      <td>${frequency}</td>
-      <td>${first_train}</td> 
+     //Train Data
+      trainElem.innerHTML = `<th scope="row">${name}</th> 
+      <td>${destination}</td>
+      <td>${frequency}</td> 
       <td>${nexttrain}</td> 
       <td>${minutesleft}</td>`
 
