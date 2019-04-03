@@ -31,9 +31,7 @@ function minsleft(first_train, frequency) {
     //Find minutes past since last train
     minute = Math.abs(parseInt(duration.asMinutes())) % frequency
 
-    
-
-    console.log(minute + 'Math.abs(parseInt(duration.asMinutes()))%frequency')
+     console.log(minute + 'Math.abs(parseInt(duration.asMinutes()))%frequency')
 
     minute = frequency - minute
 
