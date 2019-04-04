@@ -33,6 +33,17 @@ document.querySelector('#localtime').innerHTML = moment().format('hh:mm A')
   
   }) 
 
+display()
+
+  timer = setInterval(_ => {
+      
+   display()
+    
+      }, 5000)
+
+
+function display()
+{
   //FireBase watcher
   db.collection('trains').onSnapshot(snap => {
 
@@ -55,7 +66,13 @@ document.querySelector('#localtime').innerHTML = moment().format('hh:mm A')
       <td>${destination}</td>
       <td>${frequency}</td> 
       <td next_arrival_trainID=${doc.id}>${nexttrain}</td> 
-      <td minutes_left_trainID=${doc.id}>${minutesleft}</td>`
+      <td minutes_left_trainID=${doc.id}>${minutesleft}</td>
+      <td minutes_left_trainID=${doc.id}>
+
+      <a href="#">
+       <i class="fas fa-trash-alt" train_id="${doc.id}"></i>
+      </a>      
+   </td>`
  
      document.querySelector('#timetable').append(trainElem)
 
@@ -63,7 +80,55 @@ document.querySelector('#localtime').innerHTML = moment().format('hh:mm A')
     document.querySelector('#destination-input').value =  ""
     document.querySelector('#time-input').value = ""
    document.querySelector('#frequency-input').value = ""
-
  
     })
+    //end Snapshot
   })
+}
+    
+
+
+
+
+  
+
+
+  document.addEventListener('click', e => {
+    //if character clicked and game is not finished yet
+     if (e.target.className === 'fas fa-trash-alt') {
+      console.log(e.target.getAttribute('train_id'))
+       let id =  e.target.getAttribute('train_id')
+
+       db.collection("trains").doc(id).delete().then(function() {
+        console.log("Document successfully deleted!");
+    }).catch(function(error) {
+        console.error("Error removing document: ", error);
+    });
+    
+    
+
+
+     }
+
+    })
+   
+
+
+
+
+
+
+
+
+    timer = setInterval(_ => {
+      
+      console.log("Every 30 Second")
+      
+      let next_trainlist = document.getElementsByClassName('.next_train')
+      
+      console.log(next_trainlist)
+      
+        }, 10000)
+      
+
+ 
