@@ -1,27 +1,14 @@
 function next_train(first_train, frequency) {
 	let start_time = moment(first_train, 'HH:mm A');
 	let now = moment()
-    let duration = moment.duration(now.diff(start_time));
-    let totalMinutesSinceFirstTrain = Math.abs(duration.asMinutes());
-    console.log("Math.abs(duration.asMinutes())" + Math.abs(duration.asMinutes()))
-    let minute
-    
-    //if train not started yet
-    if (now.isBefore(start_time)) 
-    totalMinutesSinceFirstTrain = 0
-
-    //Find minutes past since last train
-    
-    minute = totalMinutesSinceFirstTrain % frequency
-
-    console.log("totalMinutesSinceFirstTrain % frequency" + minute)
-    
-    //Find how many minutes to go
-    //add duration plus time to next train
-
-    let howMuchtoAdd = frequency - minute
-
-    console.log('howMuchtoAdd' + howMuchtoAdd)
+	let duration = moment.duration(now.diff(start_time));
+	let totalMinutesSinceFirstTrain = Math.abs(parseInt(duration.asMinutes()));
+	let minute
+	if (now.isBefore(start_time)) totalMinutesSinceFirstTrain = 0
+	//Find minutes past since last train
+	minute = totalMinutesSinceFirstTrain % frequency
+	//Find how many minutes to go
+	let howMuchtoAdd = frequency - minute
     howMuchtoAdd = howMuchtoAdd + totalMinutesSinceFirstTrain
     
     if (now.isBefore(start_time)) 
@@ -54,6 +41,7 @@ function minsleft(first_train, frequency) {
     minute = Math.round(frequency - minute)
 
    
+
     if (minute === 0)
     return "< min"
     else 
