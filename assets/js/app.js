@@ -52,17 +52,18 @@ document.querySelector('#localtime').innerHTML = moment().format('hh:mm A')
           
      //Train Data
       trainElem.innerHTML = `<th scope="row">${name}</th> 
-      <td>${destination} and ${first_train}</td>
+      <td>${destination}</td>
       <td>${frequency}</td> 
-      <td>${nexttrain}</td> 
-      <td>${minutesleft}</td>`
-
+      <td next_arrival_trainID=${doc.id}>${nexttrain}</td> 
+      <td minutes_left_trainID=${doc.id}>${minutesleft}</td>`
+ 
      document.querySelector('#timetable').append(trainElem)
 
       document.querySelector('#name-input').value = ""
     document.querySelector('#destination-input').value =  ""
     document.querySelector('#time-input').value = ""
    document.querySelector('#frequency-input').value = ""
-      
+
+ 
     })
   })
