@@ -17,29 +17,37 @@ function next_train(first_train, frequency) {
 }
 
 function minsleft(first_train, frequency) {
+
 	let start_time = moment(first_train, 'HH:mm A');
-    let now = moment()
-    
-    console.log("Time Now =>" + moment(now).format('HH:mm') )  
-    console.log("First Train =>" + moment(start_time).format('HH:mm A') )
+  let now = moment()
 
-    let duration = moment.duration(now.diff(start_time));
-    
-    let minute = Math.abs(parseInt(duration.asMinutes()));
+  //get duration between the 2 times, if negative, make positive
+  let duration = moment.duration(now.diff(start_time));
 
-    console.log(minute + 'Math.abs(parseInt(duration.asMinutes()))')
+  //get duration in minutes
+  let minute = Math.abs(duration.asMinutes());
+
+  //If train not started 
+  if (now.isBefore(start_time)) 
+  {
+      //return rounded duration in minutes
+      return Math.round(minute)
+  }
+  
     //Find minutes past since last train
-    minute = Math.abs(parseInt(duration.asMinutes())) % frequency
-
-     console.log(minute + 'Math.abs(parseInt(duration.asMinutes()))%frequency')
-
-    minute = frequency - minute
-
-    console.log("MINUSING FROM MINUTE=>" + minute)
+    minute = minute % frequency
     
-    //If train not started 
-    if (now.isBefore(start_time)) 
-    minute = Math.abs(parseInt(duration.asMinutes()))
-	
-	return minute
+    //minutes to next train
+    minute = Math.round(frequency - minute)
+
+   
+
+    if (minute === 0)
+    return "< min"
+    else 
+    return minute
+    
+ 
+   
+  
 }
