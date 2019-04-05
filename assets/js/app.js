@@ -19,6 +19,8 @@ document.querySelector('#localtime').innerHTML = moment().format('hh:mm A')
     train_destination, first_train_time, train_frequency
 
 
+
+
   //Capture Button Click
   document.querySelector('#sbmt').addEventListener('click', e => {
     // Don't refresh the page!
@@ -31,9 +33,17 @@ document.querySelector('#localtime').innerHTML = moment().format('hh:mm A')
     frequency: document.querySelector('#frequency-input').value
     })
   
+    document.querySelector('#name-input').value = ""
+    document.querySelector('#destination-input').value =  ""
+    document.querySelector('#time-input').value = ""
+   document.querySelector('#frequency-input').value = ""
+
+
+
   }) 
 
 display()
+
 
   timer = setInterval(_ => {
       
@@ -76,10 +86,7 @@ function display()
  
      document.querySelector('#timetable').append(trainElem)
 
-      document.querySelector('#name-input').value = ""
-    document.querySelector('#destination-input').value =  ""
-    document.querySelector('#time-input').value = ""
-   document.querySelector('#frequency-input').value = ""
+    
  
     })
     //end Snapshot
@@ -105,30 +112,7 @@ function display()
         console.error("Error removing document: ", error);
     });
     
-    
-
-
-     }
+        }
 
     })
    
-
-
-
-
-
-
-
-
-    timer = setInterval(_ => {
-      
-      console.log("Every 30 Second")
-      
-      let next_trainlist = document.getElementsByClassName('.next_train')
-      
-      console.log(next_trainlist)
-      
-        }, 10000)
-      
-
- 
