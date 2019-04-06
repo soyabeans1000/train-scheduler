@@ -101,7 +101,7 @@ function display()
 
 
   document.addEventListener('click', e => {
-    //if character clicked and game is not finished yet
+    //if trash button clicked
      if (e.target.className === 'fas fa-trash-alt') {
       console.log(e.target.getAttribute('train_id'))
        let id =  e.target.getAttribute('train_id')
