@@ -3,96 +3,100 @@
 
 <head>
 
-  <meta charset="UTF-8">
-  <title>ZotExpress - Time Table</title>
+	<meta charset="UTF-8">
+	<title>ZotExpress - Time Table</title>
 
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+		integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
 
 </head>
 
 <body>
- 	<nav class="navbar bg-dark">	
+	<nav class="navbar bg-dark">
 		<h1 class="float-left text-warning">ZotExpress! Time Table</h1>
 		<h1 class="float-right text-warning">Local Time: <span id="localtime"></span></h1>
 	</nav>
-<br><br>
-  <div class="container content">
+	<br><br>
+	<div class="container content">
 
-			 <!-- <th scope="col">Destination</th> -->
-			<br> 
-				
-			<table class="table table-striped">
-				<thead class="thead-dark">
+		<!--Table for Time Table-->
+		<br>
+
+		<table class="table table-striped">
+			<thead class="thead-dark">
 				<tr>
 					<th scope="col">Train Name</th>
-						<th scope="col">Destination</th>
-						<th scope="col">Frequency(min)</th>
-						<th scope="col">Next Arrival</th>
-						<th scope="col">Minutes Away</th>
-						<th scope="col"></th>
-					</tr>
-					</thead>
-				<tbody id="timetable">	 
-				</tbody>
-		  </table>
+					<th scope="col">Destination</th>
+					<th scope="col">Frequency(min)</th>
+					<th scope="col">Next Arrival</th>
+					<th scope="col">Minutes Away</th>
+					<th scope="col"></th>
+				</tr>
+			</thead>
+
+			<!--Dynamically created Time Table-->
+			<tbody id="timetable">
+			</tbody>
+		</table>
 
 		<form class="form-horizontal">
-		<div class="table-responsive">
-			<table class="table table-borderless">
-				<thead class="thead-dark">
-			<tr>
-			<th scope="col">Add Train</th>
-			</tr>
-		</thead>
+			<div class="table-responsive">
+				<table class="table table-borderless">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col">Add Train</th>
+						</tr>
+					</thead>
 
-		<tbody>
-		<!-- name input -->
-			<tr>
-				<td>
-				<label for="name-input">Train Name</label>
-				<input type="text" id="name-input" class="form-control" />
-				</td>
-			</tr>
-			
-		<!-- destination input -->
-			<tr>
-				<td>
-					<label>Destination</label>
-					<input type="text" class="form-control" id="destination-input" />
-				</td>
-			</tr>
-			<!-- time input -->
-			<tr>
-				<td>
-					<label>First Train Time</label>
-					<input type="time" class="form-control" id="time-input" />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label>Frequency(min)</label>
-					<input type="number" class="form-control" id="frequency-input" />
-				</td>
-			</tr>	
-		</tbody>
-	</table>
-</div>
-	<button class="btn btn-warning" id="sbmt" type="submit">Submit</button><br><br>
-			</form>
-	  <!-- Container-->
-  </div>
+					<tbody>
+						<!-- name input -->
+						<tr>
+							<td>
+								<label for="name-input">Train Name</label>
+								<input type="text" id="name-input" class="form-control" />
+							</td>
+						</tr>
 
- 	 <!-- firebase firestore cdns -->
-	 <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
-	 <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
+						<!-- destination input -->
+						<tr>
+							<td>
+								<label>Destination</label>
+								<input type="text" class="form-control" id="destination-input" />
+							</td>
+						</tr>
+						<!-- time input -->
+						<tr>
+							<td>
+								<label>First Train Time</label>
+								<input type="time" class="form-control" id="time-input" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label>Frequency(min)</label>
+								<input type="number" class="form-control" id="frequency-input" />
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<button class="btn btn-warning" id="sbmt" type="submit">Submit</button><br><br>
+		</form>
+		<!-- Container-->
+	</div>
 
-	 <!-- Application Logic JavaScript-->
-	 <script src="assets/js/timecalculations.js"></script>
-	 <script src="assets/js/app.js"></script>
- 
+	<!-- firebase firestore cdns -->
+	<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
+
+	<!-- Application Logic JavaScript-->
+	<script src="assets/js/timecalculations.js"></script>
+	<script src="assets/js/app.js"></script>
+
 </body>
+
 </html>
