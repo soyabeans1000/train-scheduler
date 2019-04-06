@@ -40,7 +40,7 @@ display()
 
 timer = setInterval(_ => {
   display()
-}, 10000)
+}, 5000)
 
 
 //Display Time Table
